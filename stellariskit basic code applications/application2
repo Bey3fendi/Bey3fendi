@@ -1,0 +1,231 @@
+#include <stdint.h>
+#include <stdbool.h>
+#include "inc/hw_memmap.h"
+#include "inc/hw_types.h"
+#include "driverlib/sysctl.h"
+#include "driverlib/gpio.h"
+#include "driverlib/gpio.c"
+#include "math.h"
+
+
+void SetInitsettings();
+
+void main(void)
+{
+
+    SetInitsettings();
+
+/*
+int i=10;
+int time1=100000;
+int time2=100000;
+*/
+
+/*while(1){ (1)
+
+GPIOPinWrite(GPIO_PORTF_BASE,GPIO_PIN_1 ,2);
+        if(GPIOPinRead(GPIO_PORTF_BASE,GPIO_PIN_4 )==0){
+        SysCtlDelay(100000000);
+
+                                                       }
+        SysCtlDelay(10000000);
+GPIOPinWrite(GPIO_PORTF_BASE,GPIO_PIN_1 ,0);
+        SysCtlDelay(10000000);
+GPIOPinWrite(GPIO_PORTF_BASE,GPIO_PIN_2 ,4);
+if(GPIOPinRead(GPIO_PORTF_BASE,GPIO_PIN_0 )==0){
+SysCtlDelay(100000000);
+
+                                               }
+        SysCtlDelay(10000000);
+GPIOPinWrite(GPIO_PORTF_BASE,GPIO_PIN_2 ,0);
+        SysCtlDelay(10000000);
+        }*/
+
+/*(2)
+while(1){
+    GPIOPinWrite(GPIO_PORTF_BASE,GPIO_PIN_1 ,2);
+            if(GPIOPinRead(GPIO_PORTF_BASE,GPIO_PIN_4 )==0){
+           time1=i*time1;
+                                                           }
+            SysCtlDelay(time1);
+    GPIOPinWrite(GPIO_PORTF_BASE,GPIO_PIN_1 ,0);
+            SysCtlDelay(10000000);
+    GPIOPinWrite(GPIO_PORTF_BASE,GPIO_PIN_2 ,4);
+    if(GPIOPinRead(GPIO_PORTF_BASE,GPIO_PIN_0 )==0){
+         time2=i*time2;
+                                                   }
+            SysCtlDelay(time2);
+    GPIOPinWrite(GPIO_PORTF_BASE,GPIO_PIN_2 ,0);
+            SysCtlDelay(10000000);
+
+        }*/
+
+
+/* (3)
+while(1){
+if(GPIOPinRead(GPIO_PORTF_BASE,GPIO_PIN_4 )==0)
+                                              {
+GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_1,2);
+        SysCtlDelay(10000000);
+GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_1,0);
+        SysCtlDelay(10000000);
+                                              }
+
+        }*/
+
+/*(4)
+int sayac=0;
+
+while(1){
+if(GPIOPinRead(GPIO_PORTF_BASE,GPIO_PIN_4 )==0){
+sayac++;
+SysCtlDelay(10000000);
+
+                                               }
+if(sayac==5){
+GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_1,2);
+
+            }
+
+
+        }*/
+/* (5)
+int sayac=0;
+while(1){
+    if(GPIOPinRead(GPIO_PORTF_BASE,GPIO_PIN_0 )==0){
+    sayac++;
+    SysCtlDelay(10000000);
+
+                                                   }
+    if(sayac==3){
+    GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_2,4);
+
+                }
+
+        }*/
+
+/* (6)
+int sayac=0;
+int sayac2=0;
+while(1){
+    if(GPIOPinRead(GPIO_PORTF_BASE,GPIO_PIN_4 )==0){
+    sayac++;
+    SysCtlDelay(10000000);
+
+                                                   }
+    if(sayac==5){
+    GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_1,2);
+    SysCtlDelay(10000000);
+    GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_1,0);
+                }
+    if(sayac>=5){
+      sayac=0;
+                }
+
+    if(GPIOPinRead(GPIO_PORTF_BASE,GPIO_PIN_0 )==0){
+    sayac2++;
+    SysCtlDelay(10000000);
+
+                                                   }
+    if(sayac2==3){
+    GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_2,4);
+    SysCtlDelay(10000000);
+    GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_2,0);
+
+                }
+    if(sayac2>=3){
+        sayac2=0;
+                 }
+
+
+        }*/
+
+    /* (7)
+int sayac=0;
+while(1){
+if(GPIOPinRead(GPIO_PORTF_BASE, GPIO_PIN_4)==0){
+sayac++;
+SysCtlDelay(10000000);
+                                                   }
+if(GPIOPinRead(GPIO_PORTF_BASE,GPIO_PIN_0 )==0){
+for(sayac;sayac>0;sayac--){
+GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_1,2);
+SysCtlDelay(10000000);
+GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_1,0);
+SysCtlDelay(10000000);
+                           }
+
+                                               }
+
+        }*/
+/* (8)
+int a=1000000;
+while(1){
+if(GPIOPinRead(GPIO_PORTF_BASE,GPIO_PIN_4)==0){
+while(GPIOPinRead(GPIO_PORTF_BASE,GPIO_PIN_4)==0){}
+a=a*2;
+SysCtlDelay(10000000);
+
+                                              }
+if(GPIOPinRead(GPIO_PORTF_BASE,GPIO_PIN_0)==0){
+while(GPIOPinRead(GPIO_PORTF_BASE,GPIO_PIN_0)==0){}
+a=a/2;
+SysCtlDelay(10000000);
+
+                                              }
+GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_1,2);
+SysCtlDelay(a);
+GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_1,0);
+SysCtlDelay(10000000);
+
+        }*/
+
+}
+
+
+
+
+
+
+
+
+
+/*   led yak sondurun alt fonksiyon olarak atanması(6. soru)
+void ledsayackadaryaksondur(int sayac){
+
+    for(sayac;sayac>0;sayac--){
+    GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_1,2);
+    SysCtlDelay(10000000);
+    GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_1,0);
+    SysCtlDelay(10000000);
+                               }
+
+                                      }*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+void SetInitsettings()
+    {
+    SysCtlClockSet(SYSCTL_SYSDIV_5|SYSCTL_USE_PLL|SYSCTL_XTAL_16MHZ|SYSCTL_OSC_MAIN);
+    SysCtlPeripheralEnable(SYSCTL_PERIPH_GPIOF);
+
+    HWREG(GPIO_PORTF_BASE + GPIO_O_LOCK) = GPIO_LOCK_KEY;
+    HWREG(GPIO_PORTF_BASE + GPIO_O_CR) |= 0x01;
+
+    GPIOPinTypeGPIOOutput(GPIO_PORTF_BASE, GPIO_PIN_1|GPIO_PIN_2|GPIO_PIN_3);
+    GPIOPinTypeGPIOInput(GPIO_PORTF_BASE, GPIO_PIN_4|GPIO_PIN_0);
+    GPIOPadConfigSet(GPIO_PORTF_BASE, GPIO_PIN_4|GPIO_PIN_0, GPIO_STRENGTH_8MA,GPIO_PIN_TYPE_STD_WPU);// pull up aktif etme kodu
+
+    }
