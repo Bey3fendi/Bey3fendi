@@ -1,0 +1,132 @@
+#include <stdint.h>
+#include <stdbool.h>
+#include "inc/hw_memmap.h"
+#include "inc/hw_types.h"
+#include "driverlib/sysctl.h"
+#include "driverlib/gpio.h"
+#include "math.h"
+
+
+/*With the function created, the value data is taken from the user and the desired number of red blue green burning codes is generated.
+void kirmiziyaksondur(int deger){
+    while(deger>0){
+        GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_1|GPIO_PIN_2|GPIO_PIN_3, 2);
+        SysCtlDelay(2000000);
+        GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_1|GPIO_PIN_2|GPIO_PIN_3, 0);
+        SysCtlDelay(2000000);
+deger--;
+                  }
+                                }
+
+
+void maviyaksondur(int deger){
+    while(deger>0){
+    GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_1|GPIO_PIN_2|GPIO_PIN_3, 4);
+    SysCtlDelay(2000000);
+    GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_1|GPIO_PIN_2|GPIO_PIN_3, 0);
+    SysCtlDelay(2000000);
+    deger--;
+                  }
+                             }
+
+void yesilyaksondur(int deger){
+    while(deger>0){
+            GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_1|GPIO_PIN_2|GPIO_PIN_3, 8);
+            SysCtlDelay(2000000);
+            GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_1|GPIO_PIN_2|GPIO_PIN_3, 0);
+            SysCtlDelay(2000000);
+            deger--;
+                  }
+                              }*/
+/*  5. öncül 1. soru
+void kirmiziyaksondur(int deger,int pin){
+    while(deger>0){
+        GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_1|GPIO_PIN_2|GPIO_PIN_3, 2);
+        SysCtlDelay(2000000);
+        GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_1|GPIO_PIN_2|GPIO_PIN_3, 0);
+        SysCtlDelay(2000000);
+deger--;
+                  }
+                                }
+
+
+void maviyaksondur(int deger,int pin){
+    while(deger>0){
+    GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_1|GPIO_PIN_2|GPIO_PIN_3, 4);
+    SysCtlDelay(2000000);
+    GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_1|GPIO_PIN_2|GPIO_PIN_3, 0);
+    SysCtlDelay(2000000);
+    deger--;
+                  }
+                             }
+
+void yesilyaksondur(int deger,int pin){
+    while(deger>0){
+            GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_1|GPIO_PIN_2|GPIO_PIN_3, 8);
+            SysCtlDelay(2000000);
+            GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_1|GPIO_PIN_2|GPIO_PIN_3, 0);
+            SysCtlDelay(2000000);
+            deger--;
+                  }
+                              }*/
+
+void main(void){
+SysCtlClockSet(SYSCTL_SYSDIV_5|SYSCTL_USE_PLL|SYSCTL_XTAL_16MHZ|SYSCTL_OSC_MAIN);
+SysCtlPeripheralEnable(SYSCTL_PERIPH_GPIOF);
+GPIOPinTypeGPIOOutput(GPIO_PORTF_BASE, GPIO_PIN_1|GPIO_PIN_2|GPIO_PIN_3);
+
+/*while(1){
+    kirmiziyaksondur(20,1);
+    maviyaksondur(10,2);
+    yesilyaksondur(15,3);
+        }*/
+
+
+while(1){
+GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_1|GPIO_PIN_2|GPIO_PIN_3, 2);
+SysCtlDelay(9000000);
+GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_1|GPIO_PIN_2|GPIO_PIN_3, 4);
+SysCtlDelay(9000000);
+GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_1|GPIO_PIN_2|GPIO_PIN_3, 8);
+SysCtlDelay(9000000);
+}
+
+/*Code structure that allows the led on the stellaris kit to light first red, then blue and finally green
+int i;   
+for(i=1;i>0;++i)
+{
+GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_1|GPIO_PIN_2|GPIO_PIN_3, 2);
+SysCtlDelay(9000000);
+GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_1|GPIO_PIN_2|GPIO_PIN_3, 4);
+SysCtlDelay(9000000);
+GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_1|GPIO_PIN_2|GPIO_PIN_3, 8);
+SysCtlDelay(9000000);
+}*/
+
+
+
+/*Code structure that allows the led on the stellaris kit to light 20 times red, then 10 times blue and finally 15 times green
+while(1){
+int i;
+for(i=20;i>0;i--){
+GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_1|GPIO_PIN_2|GPIO_PIN_3, 2);
+SysCtlDelay(2000000);
+GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_1|GPIO_PIN_2|GPIO_PIN_3, 0);
+SysCtlDelay(2000000);
+    }
+for(i=10;i>0;i--){
+GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_1|GPIO_PIN_2|GPIO_PIN_3, 4);
+SysCtlDelay(2000000);
+GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_1|GPIO_PIN_2|GPIO_PIN_3, 0);
+SysCtlDelay(2000000);
+}
+for(i=15;i>0;i--){
+GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_1|GPIO_PIN_2|GPIO_PIN_3, 8);
+SysCtlDelay(2000000);
+GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_1|GPIO_PIN_2|GPIO_PIN_3, 0);
+SysCtlDelay(2000000);
+}
+}*/
+
+
+}
